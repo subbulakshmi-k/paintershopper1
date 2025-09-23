@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About - Kumaresan Painter Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f8ff;
+            color: #333;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007acc;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>About Us</h1>
+    <p>Kumaresan Painter Shop is dedicated to providing quality painting services.</p>
+    <p>We specialize in interior and exterior painting, using the best quality paints and colors to transform your space.</p>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'services' %}">Services</a> |
+        <a href="{% url 'colors' %}">Colors</a> |
+        <a href="{% url 'about' %}">About</a> |
+        <a href="{% url 'booknow' %}">Book Now</a>
+    </nav>
+</body>
+</html>

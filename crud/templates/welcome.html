@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome - Paintering Shopper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: none;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        video#background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            background-size: cover;
+            object-fit: cover;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* dark overlay */
+            z-index: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            position: relative;
+            z-index: 1;
+        }
+        nav {
+            position: relative;
+            z-index: 1;
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+        }
+        nav a:hover {
+            border-bottom: 2px solid white;
+        }
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.3em;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop playsinline id="background-video">
+        <source src="{% static 'paint.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <nav>
+        <a href="{% url 'welcome' %}">Home</a> |
+        <a href="{% url 'services' %}">Services</a> |
+        <a href="{% url 'about' %}">About</a> |
+        <a href="{% url 'booknow' %}">Book Now</a>
+    </nav>
+    <h1>welcome to paintering shopper</h1>
+    <div class="content">
+        <p>Thank you for logging in. Explore our services and book your painting needs with us.</p>
+    </div>
+</body>
+</html>

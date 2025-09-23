@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login - Kumaresan Painter Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f8ff;
+            color: #333;
+            text-align: center;
+        }
+        form {
+            margin-top: 50px;
+            display: inline-block;
+            text-align: left;
+            background: white;
+            padding: 30px;
+            border: 3px solid #007acc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #007acc;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 320px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            margin-top: 25px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #005f99;
+        }
+        .error-message {
+            color: red;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007acc;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Login</a> |
+        <a href="{% url 'welcome' %}">Home</a> |
+        <a href="{% url 'services' %}">Services</a> |
+        <a href="{% url 'colors' %}">Colors</a> |
+        <a href="{% url 'about' %}">About</a> |
+        <a href="{% url 'booknow' %}">Book Now</a>
+    </nav>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <input type="submit" name="login" value="Login" />
+    </form>
+    {% if error_message %}
+    <div class="error-message">{{ error_message }}</div>
+    {% endif %}
+</body>
+</html>
